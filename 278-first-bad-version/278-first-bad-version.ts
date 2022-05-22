@@ -4,9 +4,6 @@
  *     ...
  * };
  */
-// 1 2 3 4 5
-
-  //  1
 
 var solution = function(isBadVersion: any) {
     const hash = new Map();
