@@ -22,19 +22,16 @@ var solution = function(isBadVersion: any) {
         if(index === 1 && isBadV(index)) return 1;
         
         const num = Math.ceil((n + index ) / 2) ;
-        // console.log({index, num, n, b:isBadV(num)});
         if(index === n - 1 && isBadV(index)) {
             return index
         } else if(index === n - 1 && isBadV(n)) {
             return n;
         };
         
-       // if(num === index) return index;
         
         if(isBadV(num)) { // move left
-            //const len = Math.floor(num / 2);
            return checkbadVersion(index, num);
-         } else { // 
+         } else { // move right
            const len = n - index + 1;
            return checkbadVersion(num, n);
          }
