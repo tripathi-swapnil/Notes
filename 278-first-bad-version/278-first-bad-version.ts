@@ -9,21 +9,29 @@
   //  1
 
 var solution = function(isBadVersion: any) {
+    const hash = new Map();
     
+    function isBadV(i) {
+        if(!hash.has(i)) {
+            hash.set(i, isBadVersion(i));
+        }
+        return hash.get(i);
+    }
     function checkbadVersion(index: number, n) {
-        if(index === 1 && isBadVersion(index)) return 1;
+        
+        if(index === 1 && isBadV(index)) return 1;
         
         const num = Math.ceil((n + index ) / 2) ;
-        console.log({index, num, n, b:isBadVersion(num)});
-        if(index === n - 1 && isBadVersion(index)) {
+        // console.log({index, num, n, b:isBadV(num)});
+        if(index === n - 1 && isBadV(index)) {
             return index
-        } else if(index === n - 1 && isBadVersion(n)) {
+        } else if(index === n - 1 && isBadV(n)) {
             return n;
         };
         
        // if(num === index) return index;
         
-        if(isBadVersion(num)) { // move left
+        if(isBadV(num)) { // move left
             //const len = Math.floor(num / 2);
            return checkbadVersion(index, num);
          } else { // 
@@ -33,9 +41,7 @@ var solution = function(isBadVersion: any) {
     }
 
     return function(n: number): number {
-        const a = checkbadVersion(1, n);
-        console.log(a);
-        return a;
+        return checkbadVersion(1, n);
     };
 };
 
