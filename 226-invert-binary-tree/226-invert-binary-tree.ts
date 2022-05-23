@@ -21,8 +21,6 @@ function swapSibling(node: TreeNode) {
     const leftChild = node?.left;
     const rightChild = node?.right;
     if(leftChild || rightChild) {
-        // node.left = rightChild;
-        // node.right = leftChild;
         node.left = swapSibling(rightChild)
         node.right = swapSibling(leftChild);
      }
