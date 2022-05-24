@@ -27,6 +27,7 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   );
   return new TreeNode(preorder[0], left, right);
 }
+
 function getIndex(inorder, val) {
     let i = 0;
     while(val !==inorder[i]) {
