@@ -12,25 +12,17 @@
  * }
  */
 
+
 function isSymmetric(root: TreeNode | null): boolean {
     if(!root) return false;
-    
-    if(root.left && root.right && root.left.val === root.right.val) {
-        return checkSymm(root.left, root.right);
-    }
-    if(root.left === null && root.right === null) return true;
-    
-    if(root.left === null || root.right === null) return false;
-    return false;
+    return checkSymm(root.left, root.right);
 
 };
 
 function checkSymm(left, right) {
-    if(left === null && right === null) return true;
+    if(!left && !right) return true;
     
-    if(left === null || right === null) return false;
-    
-    if(left && right && left.val === right.val) {
+    if(left?.val === right?.val) {
         return checkSymm(left.left, right.right) && checkSymm(left.right, right.left);
     }
     return false;
