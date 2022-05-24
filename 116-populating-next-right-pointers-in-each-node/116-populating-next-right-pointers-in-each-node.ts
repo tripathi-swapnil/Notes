@@ -40,12 +40,9 @@ function connect(root: Node | null): Node | null {
              }
       }
       for(let c = 0; c < stk.length; c++) {
-          // console.log(c, c+1, stk[c].val, stk[c+1]?.val || null);
           stk[c].next = stk[c+1] || null;
       }
-      //arr.push(stk);
         
   }
-   // console.log(arr);
     return root;
 };
