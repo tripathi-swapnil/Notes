@@ -14,7 +14,7 @@
 
 function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
   if (preorder.length == 0) return null;
-  let rootIdxInInorder = inorder.indexOf(preorder[0]);
+  let rootIdxInInorder = getIndex(inorder, preorder[0])
 
   let left = buildTree(
     preorder.slice(1, rootIdxInInorder + 1),
@@ -26,4 +26,11 @@ function buildTree(preorder: number[], inorder: number[]): TreeNode | null {
     inorder.slice(rootIdxInInorder + 1)
   );
   return new TreeNode(preorder[0], left, right);
+}
+function getIndex(inorder, val) {
+    let i = 0;
+    while(val !==inorder[i]) {
+          i++;
+    }
+    return i;
 }
