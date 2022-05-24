@@ -1,7 +1,7 @@
 function twoSum(nums: number[], target: number): number[] {
   
-  function find(start: number, end: number, t: number): number | false {
-    if (start > end) return false;
+  function find(start: number, end: number, t: number): number {
+    if (start > end) return -1;
     
     const mid = Math.floor((start + end) / 2);
     
@@ -16,7 +16,7 @@ function twoSum(nums: number[], target: number): number[] {
 
   for (let i = 0; i < nums.length; i++) {
     const index = find(i+1, nums.length - 1, target - nums[i]);
-    if (index !== false) {
+    if (index > -1) {
       return [i+1, index+1]; 
     }
   }
