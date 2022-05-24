@@ -1,13 +1,6 @@
 function lengthOfLastWord(s: string): number {
-    let count = 0;
-    for(let i = s.length-1; i >=0;  i--) {
-        if(s[i] === ' ' && count > 0) {
-            break;
-        } else if(s[i] !== ' ') {
-            count++;
-        };
-        
-    }
-    return count;
+    if(s.trim() === "") return 0;
+    const arr =s.trim().split(" ")
+    return arr[arr.length -1].length
 
 };
