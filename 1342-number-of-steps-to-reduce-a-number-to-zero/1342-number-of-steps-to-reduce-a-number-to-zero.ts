@@ -1,11 +1,6 @@
 function numberOfSteps(num: number): number {
     let sum = 0;
-    
-    sum = getNum(num, sum);
-    return sum;
-
-};
-function getNum(nm, sum) {
+    function getNum(nm) {
         if(nm > 0) {
             if(nm%2 === 0) {
                 nm = nm / 2;
@@ -13,8 +8,21 @@ function getNum(nm, sum) {
                 nm--
             }
             sum++;
-            sum = getNum(nm, sum);
+            getNum(nm);
+        } else {
+            return;
         }
-        return sum
         
     }
+    getNum(num);
+//     while(num > 0) {
+//         if(num%2 === 0) {
+//             num = num / 2;
+//         } else {
+//             num--
+//         }
+        
+//     }
+    return sum;
+
+};
