@@ -15,6 +15,6 @@ function getNum(nm, sum) {
             sum++;
             sum = getNum(nm, sum);
         }
-    return sum
+        return sum
         
     }
