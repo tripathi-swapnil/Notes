@@ -1,7 +1,13 @@
 function missingNumber(nums: number[]): number {
     // const listAvailNums = Array.from({length: nums.length+1}, ((i, j) => j));
+    const newSet = new Set<number>();
+    for(let i = 0; i <= nums.length - 1; i++) {
+        newSet.add(nums[i]);
+    }
+    // console.log(newSet);
     for(let i = 0; i <= nums.length; i++) {
-        if(!nums.includes(i)) {
+       // console.log(newSet.has(i), i);
+        if(!newSet.has(i) ) {
            return i;
         }
     }
