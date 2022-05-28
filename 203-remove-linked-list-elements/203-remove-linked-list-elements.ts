@@ -15,8 +15,6 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
     let dummy = new ListNode(-1, head);
     let current = dummy;
     while(current) {
-        
-        //console.log(current);
           if(current.next && current.next.val === val) {
              current.next =  current?.next?.next;
           } else {
