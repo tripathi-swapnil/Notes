@@ -16,22 +16,12 @@ function maxProduct(words: string[]): number {
     
 };
 
-// function hasNoIntersection(a, b) {
-//     for(let  i= 0; i < a.length; i++) {
-//         if(b.indexOf(a[i]) >= 0) {
-//             return false;
-//         }
-//     }
-//     return true
-// }
-
 function hasNoIntersection(a, b) {
-    let mp = new Map();
     for(let  i= 0; i < a.length; i++) {
-        mp.set(a[i], 1);
-    }
-    for(let  i= 0; i < b.length; i++) {
-        if(mp.has(b[i])) return false;
+        if(b.indexOf(a[i]) >= 0) {
+            return false;
+        }
     }
     return true
 }
+
