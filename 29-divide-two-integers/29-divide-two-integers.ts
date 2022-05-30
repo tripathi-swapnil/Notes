@@ -1,20 +1,20 @@
 function divide(dividend: number, divisor: number): number {
 
-const min = -Math.pow(2, 31), max = Math.pow(2, 31) - 1;
+    const min = -Math.pow(2, 31), max = Math.pow(2, 31) - 1;
 
-if (dividend === min && divisor === -1) return max;
+    if (dividend === min && divisor === -1) return max;
 
-let dr = Math.abs(divisor), dd = Math.abs(dividend), quotient = 0;
+    let dr = Math.abs(divisor), dd = Math.abs(dividend), quotient = 0;
 
-while (dd >= dr) {
-quotient++;
-dd -= dr;
-}
+    while (dd >= dr) {
+        quotient++;
+        dd -= dr;
+    }
 
 
 
-const multiplier = (divisor > 0 && dividend < 0) || (divisor < 0 && dividend > 0) ? -1 : 1;
-return quotient * multiplier;
+    const multiplier = (divisor > 0 && dividend < 0) || (divisor < 0 && dividend > 0) ? -1 : 1;
+    return quotient * multiplier;
 };
 // function divide(dividend: number, divisor: number): number {
 //     let remainder = 0;
