@@ -1,31 +1,43 @@
 
 function generate(numRows: number): number[][] {
-    let arr = [];
-    for(let i = 0; i < numRows; i++) {
+    let arr = [[1]];
+    for(let i = 1; i < numRows; i++) {
+        const row = [];
+        let lastRow = arr[i-1];
         
-        let row = getRowItem(i+1);
-        console.log(row);
-        arr.push(row);
-        let c = 0;
-        while(c < row.length) {
-              if(c > 0 && c < row.length -1) {
-                  console.log((arr[i-1] && arr[i-1][c-1] ? arr[i-1][c-1] : 0), arr[i-1][c] ? arr[i-1][c] : 0, 'dfsf');
-                 arr[i][c] = (arr[i-1] && arr[i-1][c-1] ? arr[i-1][c-1] : 0) + (arr[i-1] && arr[i-1][c] ? arr[i-1][c] : 0); 
-                 // console.log(arr[i][c], c, 'c');
-              }
-              // if(i - 1 >= 0 && i ) {
-                 
-              // }
-                 c++;
+        for(let j = 0; j <= lastRow.length; j++) {
+            if(j === 0 || j === lastRow.length) {
+                row.push(1);
+                continue;
+            }
+            row.push(lastRow[j-1]+lastRow[j]);
             
-         }  
-        
+        }
+        arr.push(row);
     }
-                // console.log(arr);
-            return arr;
+    return arr;
+}
+
+// function generate(numRows: number): number[][] {
+//     let arr = [];
+//     let a = [1];
+//     for(let i = 0; i < numRows; i++) {
+        
+//         arr.push(row);
+//         let c = 0;
+//         while(c < row.length) {
+//               if(c > 0 && c < row.length -1) {
+//                  arr[i][c] = (arr[i-1] && arr[i-1][c-1] ? arr[i-1][c-1] : 0) + (arr[i-1] && arr[i-1][c] ? arr[i-1][c] : 0); 
+//               }
+//                  c++;
+            
+//          }  
+        
+//     }
+//             return arr;
             
 
-};
-function getRowItem(level) {
-    return Array(level).fill(1);
-}
+// };
+// function getRowItem(level) {
+//     return Array(level).fill(1);
+// }
