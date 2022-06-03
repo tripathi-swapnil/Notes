@@ -13,15 +13,11 @@
  */
 
 function searchBST(root: TreeNode | null, val: number): TreeNode | null {
-    function findBST(node: TreeNode | null) {
-        if(!node) return null;
+    if(!root) return null;
     
-        if(node.val === val) {
-            return node;
-         }
-        return searchBST(node.left, val) || searchBST(node.right, val);
-    }
-    
-    return findBST(root);
+    if(root.val === val) {
+        return root;
+     }
+    return searchBST(root.left, val) || searchBST(root.right, val);
 
 };
