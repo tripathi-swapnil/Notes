@@ -14,17 +14,16 @@
 
 function findTarget(root: TreeNode | null, k: number): boolean {
     let sumMap = new Set();
-    
-    function getValue(node) {
-        if(!node) return false;
-        
-        if(sumMap.has(node.val)){
-            return true;
-        }
-        sumMap.add(k - node.val);
-        return getValue(node?.left) || getValue(node?.right);
-        
-    }
-    return getValue(root);
+    return getValue(root, sumMap, k);
 
 };
+function getValue(node, sumMap, k) {
+    if(!node) return false;
+
+    if(sumMap.has(node.val)){
+        return true;
+    }
+    sumMap.add(k - node.val);
+    return getValue(node?.left, sumMap, k) || getValue(node?.right, sumMap, k);
+
+}
