@@ -14,7 +14,6 @@
 
 function findTarget(root: TreeNode | null, k: number): boolean {
     let sumMap = new Set();
-    let itemExists = false;
     
     function getValue(node) {
         if(!node) return false;
