@@ -1,8 +1,13 @@
 function arrayChange(nums: number[], operations: number[][]): number[] {
-    // const nums = new Set(nums1);
-    for(let [v, r] of operations){
-        nums[nums.indexOf(v)] = r;
-    };
+    const map = new Map();
+    for(let i in nums){
+        map.set(nums[i], i)
+    }
+    for(const [f, r] of operations){
+        const i = map.get(f)
+        map.set(r, i)
+        nums[i] = r
+    }
     return nums
 
 };
