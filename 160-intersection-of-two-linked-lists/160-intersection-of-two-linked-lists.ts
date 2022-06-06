@@ -30,11 +30,9 @@ function getIntersectionNode(headA: ListNode | null, headB: ListNode | null): Li
         if(currentA) {
             list.add(currentA);
         }
-        //console.log(list);
         currentA = currentA?.next;
         currentB = currentB?.next
     }
-        //console.log(list);
     return null;
     
 };
