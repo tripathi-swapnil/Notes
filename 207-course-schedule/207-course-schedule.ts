@@ -34,6 +34,7 @@ function canFinish(numCourses: number, prerequisites: number[][]): boolean {
     
     
     for(let k in dependencyMat) {
+       // console.log(dependencyMat);
         if(!isCourseVisited(k)) {
             return false;
         }
