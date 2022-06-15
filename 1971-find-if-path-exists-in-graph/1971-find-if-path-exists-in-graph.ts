@@ -12,7 +12,7 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
     
     while(queue.length) {
           let item = queue.pop();
-        console.log(item);
+        //console.log(item);
           visited.add(item);
         if(item === destination) return true;
         
