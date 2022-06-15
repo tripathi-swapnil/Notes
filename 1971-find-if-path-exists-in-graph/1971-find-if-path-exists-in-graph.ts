@@ -9,18 +9,21 @@ function validPath2(n: number, edges: number[][], source: number, destination: n
     let visited = new Set();
     let stack = [source];
     visited.add(source);
+    console.log(arr);
+    
     
     while(stack.length) {
         let top = stack[stack.length-1];
           for(let adj of arr[top]) {
               if(!visited.has(adj)){
                   stack.push(adj);
-                 // visited.add(adj);
+                  visited.add(source);
               }
           }
+        // console.log(stack)
          let item = stack.pop();
-        visited.add(item);
-        if(item === destination) return true;
+         if(item === destination) return true;
+        
         
     }
     return false;
@@ -47,7 +50,7 @@ function validPath(n: number, edges: number[][], source: number, destination: nu
           for(let adj of arr[item]) {
               if(!visited.has(adj)){
                   queue.push(adj);
-                 //visited.add(adj);
+                  visited.add(item);
               }
           }
     }
