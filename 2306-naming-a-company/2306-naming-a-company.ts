@@ -15,22 +15,20 @@ function distinctNames(ideas: string[]): number {
 }
 
 
-function distinctNamesTLS(ideas: string[]): number {
+function distinctNamesTLE(ideas: string[]): number {
     const obj1 = new Map();
-    // let a = Array(26).fill([]).map(a => []);
     let count = 0;
     for(let st of ideas) {
         obj1.set(st, 1);
     }
-    for(let i = 0; i < ideas.length; i++) {
-        for(let j = 0; j < ideas.length; j++) {
-            if(i === j) continue;
-           // console.log(ideas[i], ideas[j])
+    for(let i = 0; i < ideas.length - 1; i++) {
+        for(let j = i+1; j < ideas.length; j++) {
+            
             const st1 = ideas[i][0]+ideas[j].substring(1);
             const st2 = ideas[j][0]+ideas[i].substring(1);
             
             if(ideas[i][0] !== ideas[j][0] && !obj1.has(st1)  && !obj1.has(st2) ) {
-               count++;
+               count += 2;
             }
         }
     }
