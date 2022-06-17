@@ -18,25 +18,30 @@
 
 function minCameraCover(root: TreeNode | null): number {
     
+    const REQUIRES_COVER = -1;
+    const CAM_PLACED = 0;
+    const NODE_COVERED = 1
+    
+    
     let count = 0;
     
     function preOrder(node) {
-        if(node === null) return 1;
+        if(node === null) return NODE_COVERED; // 1
         
         let l = preOrder(node.left);
         let r = preOrder(node.right);
         
-        if(l === -1 || r === -1) {
+        if(l === REQUIRES_COVER || r === REQUIRES_COVER) { // -1
             count++;
             return 0;
         }
-        if(l == 0 || r == 0){
-            return 1;
+        if(l == CAM_PLACED || r == CAM_PLACED){ // 0
+            return NODE_COVERED; // 1
         }
         
-        return -1;
+        return REQUIRES_COVER; -1
     }
-    if(preOrder(root) === -1) count++
+    if(preOrder(root) === REQUIRES_COVER) count++
     
     return count;
 };
