@@ -10,3 +10,15 @@ function rob(nums: number[]): number {
 
 };
 
+
+function rob1(nums: number[]): number {
+    let prev2 = nums[0];
+    let prev = Math.max(nums[0], nums[1]);
+    for(var i = 2; i < nums.length; i++) {
+        let curr = Math.max(prev2 + nums[i], prev);
+        prev2 = prev;
+        prev = curr;
+    }
+    return prev;
+}
+
