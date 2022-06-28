@@ -9,13 +9,14 @@ function minDeletions(s: string): number {
     }
     let f = new Set();
     let count = 0;
-    Object.values(freq).forEach((v,index) => {
-        let n:any = v;
+    
+    for(let st in freq) {
+        let n:any = freq[st];
         while(f.has(n) && n > 0){
             n--;
             count++;
         }
         f.add(n);
-    });
+    }
     return count;
 };
