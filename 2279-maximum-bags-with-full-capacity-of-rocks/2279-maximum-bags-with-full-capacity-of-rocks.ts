@@ -5,10 +5,11 @@ function maximumBags(capacity: number[], rocks: number[], additionalRocks: numbe
     for(let i = 0; i < capacity.length; i++) {
         spaceLeft.push(capacity[i] - rocks[i]);
     }
+    spaceLeft = spaceLeft.sort((a,b) => a-b);
     
     //console.log(spaceLeft);
     
-    for(let space of spaceLeft.sort((a,b) => a-b)){
+    for(let space of spaceLeft){
         
         if(additionalRocks <= 0 || additionalRocks < space) {
             continue;
