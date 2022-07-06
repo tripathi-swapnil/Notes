@@ -1,12 +1,12 @@
-def memoize(func):
-    cache = {}
-    def wrapper(*args, **kwargs):
-        if (str(args), str(kwargs)) not in cache:
-            cache[(str(args), str(kwargs))] = func(*args, **kwargs)
-        return cache[(str(args), str(kwargs))]
-    return wrapper
+# def memoize(func):
+#     cache = {}
+#     def wrapper(*args, **kwargs):
+#         if (str(args), str(kwargs)) not in cache:
+#             cache[(str(args), str(kwargs))] = func(*args, **kwargs)
+#         return cache[(str(args), str(kwargs))]
+#     return wrapper
 
-@memoize
+# @memoize
 def getfactorial(n:int) -> int:
     if n < 2:
         return 1;
