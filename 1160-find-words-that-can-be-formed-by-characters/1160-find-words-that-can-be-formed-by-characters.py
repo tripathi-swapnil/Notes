@@ -24,11 +24,11 @@ class Solution:
             else:
                 frequencyMap[w] = 1
                 
-            if fMap.get(w, 'na') == 'na':
-                return False
+            # if fMap.get(w, 'na') == 'na':
+            #     return False
             # print(word, fMap, frequencyMap, w)
                 
-            if frequencyMap[w] > fMap[w]:
+            if fMap.get(w, 'na') == 'na' or frequencyMap[w] > fMap[w]:
                 return False
         return True
                 
