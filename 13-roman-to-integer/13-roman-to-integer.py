@@ -34,13 +34,13 @@ class Solution:
         for i, s in enumerate(st):
             # print(sum, dict.get(s)['value'], dict.get(s)['pattern'])
             val = dict.get(s)['value']
-            try:
-                if i >= len(st) -1:
-                    index = -1
-                else:
-                    index = dict.get(s)['pattern'].index(st[i+1])
-            except ValueError:
+            # try:
+            if i >= len(st) -1:
                 index = -1
+            else:
+                index = 1 if st[i+1] in dict.get(s)['pattern'] else -1
+            # except ValueError:
+            #     index = -1
             
             if index > -1:
                 sum -= val
