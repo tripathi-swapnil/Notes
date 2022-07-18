@@ -8,10 +8,9 @@ class Solution:
         
     def countBits(self, n: int) -> List[int]:
         output = [0]*(n+1)
-        for i in range(n+1):
-            bitv = self.getbitcount(i)
+        for i in range(1, n+1):
             # print(i , bitv)
-            output[i] = bitv
-            
+            output[i] = output[i & (i-1)] + 1
+        
         return output
         
