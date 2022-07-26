@@ -33,6 +33,8 @@ function lowestCommonAncestor(root: TreeNode | null, p: TreeNode | null, q: Tree
     updateArr(root, p, node1Arr);
     updateArr(root, q, node2Arr);
     
+    // console.log(node1Arr, node2Arr)
+    
     let lca = node1Arr[node1Arr.length-1];
     for(let i = 0; i < node1Arr.length; i++) {
         if(node1Arr[node1Arr.length -1 - i] === node2Arr[node2Arr.length -1 - i]) {
