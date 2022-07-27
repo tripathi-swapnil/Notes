@@ -22,9 +22,7 @@ class Solution:
             while current.right is not None:
                 current = current.right
 
-
             current.right = rightnode;
-            print(root)
         
         self.flatten(root.right)
         
