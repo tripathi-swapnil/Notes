@@ -14,12 +14,10 @@ class Solution:
 
         for i in range(index+1, len(nums)):
             v = nums[i]
-            # if i <= index:
-            #     continue
             diff = target - v
             if v in hash:
                 arr = [diff, v, -target]
-                arr.sort()
+                # arr.sort()
                 result.add(tuple(arr))
             hash[diff] = i
         return result
