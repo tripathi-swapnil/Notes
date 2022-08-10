@@ -16,8 +16,7 @@ class Solution:
             v = nums[i]
             diff = target - v
             if v in hash:
-                arr = [diff, v, -target]
-                # arr.sort()
+                arr = [-target, diff, v]
                 result.add(tuple(arr))
             hash[diff] = i
         return result
