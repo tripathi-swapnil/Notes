@@ -12,9 +12,10 @@ class Solution:
         result = set()
         hash = {}
 
-        for i,v in enumerate(nums):
-            if i <= index:
-                continue
+        for i in range(index+1, len(nums)):
+            v = nums[i]
+            # if i <= index:
+            #     continue
             diff = target - v
             if v in hash:
                 arr = [diff, v, -target]
