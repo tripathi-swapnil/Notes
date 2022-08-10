@@ -5,7 +5,6 @@ class Solution:
         for i, ch in enumerate(s):
             indexmap[ch] = i
         
-        # print(indexmap)
         
         for i, ch in enumerate(s):
             lastindex = max(lastindex, indexmap[ch])
@@ -14,7 +13,6 @@ class Solution:
             if lastindex == i:
                 answer.append(count)
                 count = 0
-                lastindex = -1
                 
         return answer
                 
