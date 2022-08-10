@@ -3,8 +3,10 @@ class Solution:
         nums.sort()
         output = []
         for i in range(len(nums)-2):
+            
             if i and nums[i] == nums[i-1]:
                 continue
+            
             left = i+1
             right = len(nums) - 1
             
@@ -30,25 +32,25 @@ class Solution:
         
         
         
-    def threeSum1(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()
-        output = set()
-        for i, v in enumerate(nums):
-            val = self.twoSum(nums, -v, i)
-            output.update(val)
-        return output
+#     def threeSum1(self, nums: List[int]) -> List[List[int]]:
+#         nums.sort()
+#         output = set()
+#         for i, v in enumerate(nums):
+#             val = self.twoSum(nums, -v, i)
+#             output.update(val)
+#         return output
         
         
-    def twoSum(self, nums: List[int], target: int, index: int) -> List[int]:
-        result = set()
-        hash = {}
+#     def twoSum(self, nums: List[int], target: int, index: int) -> List[int]:
+#         result = set()
+#         hash = {}
 
-        for i in range(index+1, len(nums)):
-            v = nums[i]
-            diff = target - v
-            if v in hash:
-                arr = [-target, diff, v]
-                result.add(tuple(arr))
-            hash[diff] = i
-        return result
+#         for i in range(index+1, len(nums)):
+#             v = nums[i]
+#             diff = target - v
+#             if v in hash:
+#                 arr = [-target, diff, v]
+#                 result.add(tuple(arr))
+#             hash[diff] = i
+#         return result
         
