@@ -1,0 +1,2 @@
+# Write your MySQL query statement below
+Select distinct wtoday.Id from Weather as wtoday Inner join Weather as wyes on wtoday.temperature > wyes.temperature where TO_DAYS(wtoday.recordDate )-TO_DAYS(wyes.recordDate )=1
