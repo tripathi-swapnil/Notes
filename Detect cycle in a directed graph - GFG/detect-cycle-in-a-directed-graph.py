@@ -25,9 +25,8 @@ class Solution:
             
         
         for i in range(V):
-            if i not in visited:
-                if dfs(i):
-                    return True
+            if i not in visited and dfs(i):
+                return True
         
         return False
             
