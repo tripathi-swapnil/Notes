@@ -4,23 +4,51 @@ class Solution:
     #Function to return list containing vertices in Topological order.
     def topoSort(self, V, adj):
         # Code here
-        vis, stk = set(), deque()
+        indegree, q, topo = {}, deque(), deque()
         
-        def dfs(i):
-            vis.add(i)
-            for node in adj[i]:
-                if node not in vis:
-                    dfs(node)
+        for i in adj:
+            for node in i:
+                indegree[node] = indegree.get(node, 0) + 1
+                
+        
+        for node in range(V):
+            if node not in indegree:
+                q.append(node)
+        
+        while q:
+            node = q.pop()
+            topo.append(node)
             
-            stk.appendleft(i)
+            for i in adj[node]:
+                indegree[i] -= 1
+                if indegree.get(i) == 0:
+                    q.append(i)
+        
+        return topo
+        
+        
+        
+        
+        
+        # vis, stk = set(), deque()
+        
+        # def dfs(i):
+        #     vis.add(i)
+        #     for node in adj[i]:
+        #         if node not in vis:
+        #             dfs(node)
+            
+        #     stk.appendleft(i)
                 
             
         
-        for i in range(V):
-            if i not in vis:
-                dfs(i)
+        # for i in reversed(range(V)):
+        #     if i not in vis:
+        #         dfs(i)
+                
+        # print(stk)
         
-        return stk
+        # return stk
                 
 
 
